@@ -1,0 +1,26 @@
+module count15x4(o,x);
+output [3:0]o;
+input [14:0]x;
+wire [8:0]s;
+wire [11:0]c;
+//
+m53 m0(s[0],c[0],c[1],x[0],x[1],x[2],x[3],x[4]);
+m53 m1(s[1],c[2],c[3],x[5],x[6],x[7],x[8],x[9]);
+m53 m2(s[2],c[4],c[5],x[10],x[11],x[12],x[13],x[14]);
+//
+fa fa3(s[3],c[6],s[0],s[1],s[2]);
+fa fa4(s[4],c[7],c[0],c[2],c[4]);
+fa fa5(s[5],c[8],c[1],c[3],c[5]);
+//
+ha ha6(s[6],c[9],c[6],s[4]);
+fa fa7(s[7],c[10],c[9],c[7],s[5]);
+ha ha8(s[8],c[11],c[10],c[8]);
+
+assign o[0]=s[3];
+assign o[1]=s[6];
+assign o[2]=s[7];
+assign o[3]=s[8];
+
+
+
+endmodule
