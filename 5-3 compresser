@@ -1,0 +1,22 @@
+module m53(sum,car,cout,x0,x1,x2,x3,x4);
+    input x0;
+    input x1;
+    input x2;
+    input x3;
+    input x4;
+    output cout;
+    output car;
+    output sum;
+		wire 	y0,y1,y2,y3,y4,w1,p,r;
+	assign	y0=x3|x4;
+	assign	y1=x3&x4;
+	assign	y2=x2|x1;
+	assign	y3=x2&x1;
+	assign   y4=x0;
+	assign   w1=(y0&(y2|y1));
+	assign   p=r?y4:y3;
+	assign	cout =	(w1)&(p);
+	assign   car=		((w1)^(p));
+	assign   r=(y0&~y1)^(y2&~y3);
+	assign   sum=r^y4;
+endmodule
